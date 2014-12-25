@@ -139,6 +139,8 @@ var single_post_container =
         '<ul class="response">' +
         '</ul>' +
     '</div>' + 
+    '<div class="single-post-empty">' + 
+    '</div>' +
     '<div class="single-foot">' + 
         '<input class="response-action" type="text"/>' + 
         '<img src="img/write.png">' + 

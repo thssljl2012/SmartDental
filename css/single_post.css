@@ -40,6 +40,11 @@ body{
 	background-color: white;
 }
 
+.single-post-empty
+{
+	height: 100px;
+}
+
 .single-main-post
 {
 	border-bottom-style: solid;
