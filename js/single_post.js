@@ -58,15 +58,15 @@ function generate_single_post(msgid) {
     })
     */
 
-    $('.single-foot img').click(function() {
+    $('.comment').click(function() {
         var input = $('.response-action');
         if (input.val() != "") {
             var date = new Date();
             var time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
-            var author = "匿名用户";
+            var author = global_username;
             var favor = 0;
             var content = input.val();
-            var img = 'img/avatar.png';
+            var img = global_image;
 
             var response = {
                 author: author,
@@ -103,8 +103,13 @@ function generate_single_post(msgid) {
 
 
 function back_from_single_post() {
-    $('#single-post-container').remove();
-    $('#main-container').show();
+    var timeout = 500;
+    $('#single-post-container').animate({'left':width}, timeout);
+    $('#main-container').animate({'left':"0"}, timeout);
+    setTimeout(function(){
+        $('#single-post-container').remove();
+        $('#main-container').css({'z-index':'0'});
+    }, timeout + 50);
 }
 
 
@@ -125,7 +130,8 @@ var single_post_container =
                 '<div class="single-main-like">' + 
                     '<img src="img/like.png">' + 
                     '<div class="single-main-favor"></div>' +
-                '</div>' + 
+                '</div>' +
+                '<div class="clearfloat"></div>'+
             '</div>' + 
             '<div class="single-main-body">' + 
             '</div>' + 
@@ -142,8 +148,8 @@ var single_post_container =
     '<div class="single-post-empty">' + 
     '</div>' +
     '<div class="single-foot">' + 
-        '<input class="response-action" type="text"/>' + 
-        '<img src="img/write.png">' + 
+        '<input class="response-action form-control" type="text"/>' +
+        '<div class="comment text-shadow glyphicon glyphicon-send"></div>' +
     '</div>' + 
 '</div>';
 

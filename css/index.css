@@ -66,7 +66,6 @@ body
 	color: white; 
 	font-size: 12px;
 	text-align: center;
-	width: 18px;
 	background-color: #1E90FF;
 }
 
@@ -115,13 +114,16 @@ body
 	width: 100%;
 }
 
-.footer-box img
+.post-icon
 {
-	float: left;
-	display: block;
-	width: 7%;
-	margin-top: 3%;
-	margin-left: 41%;
+    font-size: 29px;
+    color: white;
+    float: left;
+    display: block;
+    width: 7%;
+    margin-top: 3%;
+    margin-left: 41%;
+    text-shadow: 3px 3px #666;
 }
 
 .footer-text
@@ -131,5 +133,16 @@ body
 	margin-top: 4%;
 	margin-left: 2%;
 	font-size: 20px;
+    text-shadow: 3px 3px #666;
+}
+
+.post_input
+{
+    box-shadow: #666 3px 3px !important;
+}
+
+label
+{
+    text-shadow: .3px .3px #666;
 }
 

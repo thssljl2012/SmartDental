@@ -29,12 +29,26 @@ function show_post_new() {
 function show_single_post(msgid) {
 	$('body').append(single_post_container);
 	generate_single_post(msgid);
-	
-	$('#main-container').hide();
-	
-	$('#single-post-container').css("width", width);
+
+	$('#single-post-container').css({
+		"width" : width,
+		"position" : "absolute", 
+		"left" : "-" + width + "px"
+	});
+
+    var timeout = 500;
 	$('#single-post-container').show();
-	window.scrollTo(0, 0);
+    $('#main-container').animate({'left':width+'px'}, timeout);
+    $('#single-post-container').animate({'left':'0px'}, timeout);
+
+    setTimeout(function(){
+        window.scrollTo(0, 0);
+        $('#main-container').css({
+            "left" : "-" + width + "px",
+            "z-index" : "-1"
+        });
+    },timeout + 50);
+
 }
 
 function show_message(msg, msgid)
@@ -84,19 +98,10 @@ function show_message(msg, msgid)
 }
 
 function show_button() {
-	/*
-	var div =
-	'<div class="button-area">'+
-		'<input type="button" class="post-button" value="发贴" onclick="show_post_new()">'+
-	'</div>';
-
-	$('#main-container').append(div);
-	*/
-
 	var footer = 
 	'<a class="footer" onclick="show_post_new()">' + 
 		'<div class="footer-box">' + 
-			'<img src="img/write.png">' +
+			'<div class="glyphicon glyphicon-edit post-icon"></div>' +
 			'<div class="footer-text">' +
 				'发贴' + 
 			'</div>' +
@@ -106,9 +111,7 @@ function show_button() {
 	$('#main-container').append(footer);
 }
 
-function initialize() {
-	get_database();
-
+function show_main_page() {
 	var msgs = get_messages();
 
 	$('body').append('<div id="main-container"></div>');
@@ -132,6 +135,17 @@ function initialize() {
 	}
 
 	show_button();
+
+    $('#main-container').css({
+        "position" : "absolute",
+        "left" : "0px"
+    });
+}
+
+function initialize() {
+	get_database();
+
+	$('body').css('width', width);
 }
 
 initialize();

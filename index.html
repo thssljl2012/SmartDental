@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		
 		<title>SmartDental 论坛首页</title>
+
 		<script type="text/javascript" src="js/jquery2.1.1.js"></script>
 		<script type="text/javascript" src="js/json.js"></script>
 		<script type="text/javascript" src="js/post_new.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/single_post.js"></script>
+		<script type="text/javascript" src="js/login.js"></script>
+		
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<link rel="stylesheet" type="text/css" href="css/post_new.css"/>
 		<link rel="stylesheet" type="text/css" href="css/single_post.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
 	</head>
 	
 	<body>
 
-		<div id="post-new-container" style="display:none;">
-			<!--
-			<div id="titleBody">
-				<div class="post-back-icon-area">
-					<img class="post-back-icon" src="img/back-icon.png" width="30em" height="30em" onclick="back_from_post_new()">
-				</div>
-				<div class="single-title">发表新贴</div>
-				<div id="titleContent" color="white">发表新帖</div>
+		<div id="login-container">
+			
+			<div class="login-title">
+				SmartDental 论坛登录
 			</div>
-			-->
+
+			<div class="login-username">
+				<label class="login-username-label">请输入你的昵称:</label>
+				<input type="text" class="login-username-text form-control" id="username-text">
+			</div>
+
+			<div class="login-button-area">
+                <button class="btn login-button" onclick="login_action()">登录</button>
+			</div>
+
+		</div>
+
+		<div id="post-new-container" style="display:none;">
 
 			<div class="post-head">
 				<div class="post-back-icon-area">
@@ -31,7 +47,7 @@
 				</div>
 				<div class="post-title">发表新贴</div>
 			</div>
-			
+
 			<div id="inputBody">
 				<div id="contentDiv">
 
@@ -52,16 +68,18 @@
 
 				</div>
 			</div>
+
 			<a class="footer" onclick="post_new_action()">
 				<div class="footer-box">
-					<img src="img/write.png">
+					<div class="post-icon glyphicon glyphicon-edit"></div>
 					<div class="footer-text">提交</div>
 				</div>
 			</a>
+
 		</div>
 
 	</body>
-
+	
 	<script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/single_post.js"></script>
+
 </html>
